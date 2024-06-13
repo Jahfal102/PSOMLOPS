@@ -33,6 +33,6 @@ model = XGBRegressor()
 model.fit(X_train, Y_train)
 
 model.predict(X_test)
-test_data_prediction
+test_data_prediction = model.predict(X_test)
 
 mae = metrics.mean_absolute_error(Y_test, test_data_prediction)
