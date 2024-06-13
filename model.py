@@ -13,6 +13,9 @@ calories.head()
 exercise_data = pd.read_csv('exercise.csv')
 exercise_data.head()
 
+calories_data = pd.concat([exercise_data, calories['Calories']], axis=1)
+calories_data.shape
+
 calories_data.isnull().sum()
 calories_data.describe()
 
