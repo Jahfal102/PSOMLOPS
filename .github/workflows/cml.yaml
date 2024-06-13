@@ -21,3 +21,4 @@ jobs:
           pip install -r requirements.txt
           pip install xgboost
           python model.py
+          pip install plotly
