@@ -5,7 +5,6 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
 from sklearn import metrics
-pip install xgboost
 
 #loading the data from csv file to a Pandas DataFrame
 calories = pd.read_csv('/content/calories.csv')
