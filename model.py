@@ -7,10 +7,10 @@ from xgboost import XGBRegressor
 from sklearn import metrics
 
 #loading the data from csv file to a Pandas DataFrame
-calories = pd.read_csv('/content/calories.csv')
+calories = pd.read_csv('calories.csv')
 calories.head()
 
-exercise_data = pd.read_csv('/content/exercise.csv')
+exercise_data = pd.read_csv('exercise.csv')
 exercise_data.head()
 
 calories_data.isnull().sum()
