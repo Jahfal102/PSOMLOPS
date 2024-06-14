@@ -22,4 +22,4 @@ jobs:
           pip install xgboost
           python model.py
           pip install plotly
-          streamlit run app.py --server.headless
+          streamlit run app.py --server.headless true
