@@ -22,4 +22,6 @@ jobs:
           pip install xgboost
           python model.py
           pip install plotly
+          streamlit run app.py
+
           
