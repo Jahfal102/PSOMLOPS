@@ -31,28 +31,18 @@ def user_input_features():
     gender = 1 if gender_button == "Male" else 0
 
     data = {
-        "age": age,
-        "bmi": bmi,
-        "duration": duration,
-        "heart_rate": heart_rate,
-        "body_temp": body_temp,
-        "gender": ["Male" if gender_button == "Male" else "Female"]
+        "Age": age,
+        "BMI": bmi,
+        "Duration": duration,
+        "Heart_Rate": heart_rate,
+        "Body_Temp": body_temp,
+        "Gender": gender
     }
 
-    data_model = {
-        "age": age,
-        "bmi": bmi,
-        "duration": duration,
-        "heart_rate": heart_rate,
-        "body_temp": body_temp,
-        "gender": gender
-    }
+    features = pd.DataFrame(data, index=[0])
+    return features
 
-    features = pd.DataFrame(data_model, index=[0])
-    data = pd.DataFrame(data, index=[0])
-    return features, data
-
-df, data = user_input_features()
+df = user_input_features()
 
 st.write("---")
 st.header("Your Parameters : ")
@@ -61,7 +51,7 @@ bar = st.progress(0)
 for i in range(100):
     bar.progress(i + 1)
     time.sleep(0.01)
-st.write(data)
+st.write(df)
 
 @st.cache
 def load_data():
@@ -127,10 +117,10 @@ st.write(ds.sample(5))
 st.write("---")
 st.header("General Information : ")
 
-boolean_age = (exercise_df["Age"] < df['age'][0]).tolist()
-boolean_duration = (exercise_df["Duration"] < df['duration'][0]).tolist()
-boolean_body_temp = (exercise_df["Body_Temp"] < df['body_temp'][0]).tolist()
-boolean_heart_rate = (exercise_df["Heart_Rate"] < df['heart_rate'][0]).tolist()
+boolean_age = (exercise_df["Age"] < df['Age'][0]).tolist()
+boolean_duration = (exercise_df["Duration"] < df['Duration'][0]).tolist()
+boolean_body_temp = (exercise_df["Body_Temp"] < df['Body_Temp'][0]).tolist()
+boolean_heart_rate = (exercise_df["Heart_Rate"] < df['Heart_Rate'][0]).tolist()
 
 st.write("You are older than %", round(sum(boolean_age) / len(boolean_age), 2) * 100, "of other people.")
 st.write("You had higher exercise duration than %", round(sum(boolean_duration) / len(boolean_duration), 2) * 100, "of other people.")
