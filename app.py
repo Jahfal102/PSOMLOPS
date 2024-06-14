@@ -5,7 +5,6 @@ import seaborn as sn
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
-from sklearn import metrics
 import time
 
 from matplotlib import style
@@ -93,7 +92,13 @@ y_test = exercise_test_data["Calories"]
 
 random_reg = RandomForestRegressor(n_estimators=1000, max_features=3, max_depth=6)
 random_reg.fit(X_train, y_train)
-random_reg_prediction = random_reg.predict(X_test)
+
+# Ensure df has the same structure as X_train
+df = pd.get_dummies(df, drop_first=True)
+missing_cols = set(X_train.columns) - set(df.columns)
+for col in missing_cols:
+    df[col] = 0
+df = df[X_train.columns]
 
 prediction = random_reg.predict(df)
 
