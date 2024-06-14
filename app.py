@@ -79,7 +79,7 @@ exercise_df = exercise.merge(calories , on = "User_ID")
 # st.write(exercise_df.head())
 exercise_df.drop(columns = "User_ID" , inplace = True)
 
-exercise_train_data , exercise_test_data = train_test_split(exercise_df , test_size = 0.2 , random_state = 1)
+exercise_train_data , exercise_test_data = train_test_split(exercise.df , test_size = 0.2 , random_state = 1)
 
 for data in [exercise_train_data , exercise_test_data]:         # adding BMI column to both training and test sets
     data["BMI"] = data["Weight"] / ((data["Height"] / 100) ** 2)
@@ -90,10 +90,10 @@ exercise_test_data = exercise_test_data[["Gender" , "Age" , "BMI"  , "Duration" 
 exercise_train_data = pd.get_dummies(exercise_train_data, drop_first = True)
 exercise_test_data = pd.get_dummies(exercise_test_data, drop_first = True)
 
-X_train = exercise_train_data.drop("Calories" , axis = 1)
-y_train = exercise_train_data["Calories"]
+X_train = exercise_train_data.drop("calories" , axis = 1)
+y_train = exercise_train_data["calories"]
 
-X_test = exercise_test_data.drop("Calories" , axis = 1)
+X_test = exercise_test_data.drop("calories" , axis = 1)
 y_test = exercise_test_data["Calories"]
 
 random_reg = RandomForestRegressor(n_estimators = 1000 , max_features = 3 , max_depth = 6)
@@ -126,16 +126,16 @@ for i in range(100):
   time.sleep(0.01)
 
 range = [prediction[0] - 10 , prediction[0] + 10]
-ds = exercise_df[(exercise_df["Calories"] >= range[0]) & (exercise_df["Calories"] <= range[-1])]
+ds = exercise.df[(exercise_df["calories"] >= range[0]) & (exercise_df["Calories"] <= range[-1])]
 st.write(ds.sample(5))
 
 st.write("---")
 st.header("General Information : ")
 
-boolean_age = (exercise_df["Age"] < age).tolist()
-boolean_duration = (exercise_df["Duration"] < duration).tolist()
-boolean_body_temp = (exercise_df["Body_Temp"] < body_temp).tolist()
-boolean_heart_rate= (exercise_df["Heart_Rate"] < heart_rate).tolist()
+boolean_age = (exercise.df["Age"] < age).tolist()
+boolean_duration = (exercise.df["Duration"] < duration).tolist()
+boolean_body_temp = (exercise.df["Body_Temp"] < body_temp).tolist()
+boolean_heart_rate= (exercise.df["Heart_Rate"] < heart_rate).tolist()
 
 st.write("You are older than %" , round(sum(boolean_age) / len(boolean_age) , 2) * 100 , "of other people.")
 st.write("Your had higher exercise duration than %" , round(sum(boolean_duration) / len(boolean_duration) , 2) * 100 , "of other people.")
