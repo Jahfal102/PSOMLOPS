@@ -22,5 +22,4 @@ jobs:
           pip install xgboost
           python model.py
           pip install plotly
-          streamlit run app.py --server.headless true --server.port 8501
-          while true; do echo "streamlit is running..."; sleep 60; done
+          
