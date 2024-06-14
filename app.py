@@ -75,9 +75,9 @@ st.write(data)
 calories = pd.read_csv("calories.csv")
 exercise = pd.read_csv("exercise.csv")
 
-exercise_df = exercise.merge(calories , on = "User_ID")
-# st.write(exercise_df.head())
-exercise_df.drop(columns = "User_ID" , inplace = True)
+exercise.df = exercise.merge(calories , on = "User_ID")
+# st.write(exercise.df.head())
+exercise.df.drop(columns = "User_ID" , inplace = True)
 
 exercise_train_data , exercise_test_data = train_test_split(exercise.df , test_size = 0.2 , random_state = 1)
 
