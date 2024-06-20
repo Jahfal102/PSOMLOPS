@@ -15,7 +15,6 @@ import warnings
 warnings.filterwarnings('ignore')
 
 st.write("## Calories burned Prediction")
-st.image("https://assets.considerable.com/wp-content/uploads/2019/07/03093250/ExerciseRegimenPano.jpg", use_column_width=True)
 st.write("In this WebApp you will be able to observe your predicted calories burned in your body. Only thing you have to do is pass your parameters such as `Age`, `Gender`, `BMI`, etc. into this WebApp and then you will be able to see the predicted value of kilocalories that burned in your body.")
 
 st.sidebar.header("User Input Parameters : ")
