@@ -14,6 +14,8 @@ import plotly.express as px
 import warnings
 warnings.filterwarnings('ignore')
 
+set_background('download(1).png')
+
 st.write("## Calories burned Prediction")
 st.write("In this WebApp you will be able to observe your predicted calories burned in your body. Only thing you have to do is pass your parameters such as `Age`, `Gender`, `BMI`, etc. into this WebApp and then you will be able to see the predicted value of kilocalories that burned in your body.")
 
