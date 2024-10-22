@@ -20,7 +20,7 @@ st.write("In this WebApp you will be able to observe your predicted calories bur
 st.sidebar.header("User Input Parameters : ")
 
 def user_input_features():
-    age = st.sidebar.slider("Age: ", 10, 100, 30)
+    age = st.sidebar.slider("ganteng: ", 10, 100, 30)
     bmi = st.sidebar.slider("BMI: ", 15, 40, 20)
     duration = st.sidebar.slider("Duration (min): ", 0, 35, 15)
     heart_rate = st.sidebar.slider("Heart Rate: ", 60, 130, 80)
